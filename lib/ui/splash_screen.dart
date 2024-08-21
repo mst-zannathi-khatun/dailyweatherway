@@ -1,3 +1,4 @@
+import 'package:dailyweatherway/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -27,7 +28,12 @@ class SplashScreen extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xffefcf0a)),
                 child: const Text(
