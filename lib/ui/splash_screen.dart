@@ -5,12 +5,43 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        children: [
-          
-        ],
+    return Scaffold(
+        body: Column(children: [
+      Image.asset("assets/images/dlogo.png"),
+      const SizedBox(
+        height: 60,
       ),
-    );
+      Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          children: [
+            const Text("Daily Weather Way",
+                style: TextStyle(
+                  fontFamily: "assets/fonts/Editor Gifted DEMO.otf",
+                  fontSize: 24,
+                )),
+            const SizedBox(
+              height: 24,
+            ),
+            SizedBox(
+              height: 50,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xffefcf0a)),
+                child: const Text(
+                  "Get Start",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ]));
   }
 }
