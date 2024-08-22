@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../ui/search_screen.dart';
+
 class WeatherHeader extends StatelessWidget {
   const WeatherHeader({
     super.key,
@@ -37,7 +39,9 @@ class WeatherHeader extends StatelessWidget {
                 )),
             const Spacer(),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
+                },
                 icon: const Icon(
                   Icons.add_box,
                   size: 24,
