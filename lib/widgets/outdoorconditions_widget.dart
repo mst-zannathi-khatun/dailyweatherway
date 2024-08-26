@@ -7,57 +7,84 @@ class OutdoorConditionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
       child: Card(
         color: Colors.white,
         elevation: 4,
         margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
         ),
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Row(children: [
-                Icon(Icons.car_crash, size: 40, color: Colors.blue,),
-                SizedBox(width: 4,),
-                Text("Driving difficulty", style: TextStyle(fontSize: 20),),
-                Spacer(),
-                Text("Wet", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-              ],),
-              Divider(
+              outdoorConditionRow(
+                icon: Icons.car_crash,
+                iconText: "Driving difficulty",
+                lastText: "Wet",
+                iconColor: Colors.blue,
+              ),
+              const Divider(
                 // Divider between the rows
                 color: Colors.grey,
                 thickness: 1,
                 indent: 42,
                 endIndent: 8,
               ),
-              Row(children: [
-                Icon(Icons.air_sharp, size: 40, color: Colors.cyan,),
-                SizedBox(width: 4,),
-                Text("Pollen", style: TextStyle(fontSize: 20),),
-                Spacer(),
-                Text("None", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-              ],),
-              Divider(
+              outdoorConditionRow(
+                icon: Icons.air_sharp,
+                iconText: "Pollen",
+                lastText: "None",
+                iconColor: Colors.cyan,
+              ),
+              const Divider(
                 // Divider between the rows
                 color: Colors.grey,
                 thickness: 1,
                 indent: 42,
                 endIndent: 8,
               ),
-              Row(children: [
-                Icon(Icons.snowshoeing, size: 40, color: Colors.green,),
-                SizedBox(width: 4,),
-                Text("Running", style: TextStyle(fontSize: 20),),
-                Spacer(),
-                Text("Very Poor", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-              ],),
-            ],),
+              outdoorConditionRow(
+                icon: Icons.snowshoeing,
+                iconText: "Running",
+                lastText: "Very Poor",
+                iconColor: Colors.green,
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget outdoorConditionRow({
+    required IconData icon,
+    required String iconText,
+    required String lastText,
+    required Color iconColor,
+  }) {
+    return Row(
+      children: [
+        Icon(
+          icon,
+          size: 40,
+          color: iconColor,
+        ),
+        const SizedBox(
+          width: 4,
+        ),
+        Text(
+          iconText,
+          style: const TextStyle(fontSize: 20),
+        ),
+        const Spacer(),
+        Text(
+          lastText,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }

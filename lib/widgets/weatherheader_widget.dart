@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../style/custom_icon_style.dart';
+import '../style/text_style.dart';
 import '../ui/search_screen.dart';
 
-class WeatherHeader extends StatelessWidget {
-  const WeatherHeader({
+class WeatherHeaderWidget extends StatelessWidget {
+  final VoidCallback onMorePressed;
+
+  const WeatherHeaderWidget({
     super.key,
+    required this.onMorePressed, // Required callback
   });
 
   @override
@@ -17,37 +22,34 @@ class WeatherHeader extends StatelessWidget {
           color: Colors.black12.withOpacity(0.5),
           colorBlendMode: BlendMode.xor,
         ),
-        const Positioned.fill(
-          child: Center(
-            child: Text(
-              "Weather",
-              style: TextStyle(
-                fontSize: 28,
-                color: Colors.black,
-              ),
-            ),
-          ),
+        const SizedBox(
+          height: 8,
         ),
         Row(
           children: [
             IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.more_vert,
-                  size: 24,
-                  color: Colors.black54,
-                )),
+              onPressed: onMorePressed, // Use the callback here
+              icon: CustomButtonIcons.weatherHeaderMoreVert,
+            ),
             const Spacer(),
             IconButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
-                },
-                icon: const Icon(
-                  Icons.add_box,
-                  size: 24,
-                  color: Colors.black54,
-                )),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchScreen()));
+              },
+              icon: CustomButtonIcons.weatherHeaderAddBox,
+            ),
           ],
+        ),
+        Positioned.fill(
+          child: Center(
+            child: Text(
+              "Weather",
+              style: CustomTextStyles.weatherHeader,
+            ),
+          ),
         ),
         const SizedBox(
           height: 100,

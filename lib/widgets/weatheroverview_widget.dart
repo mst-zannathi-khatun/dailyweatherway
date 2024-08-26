@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-class WeatherOverview extends StatelessWidget {
-  const WeatherOverview({
+import '../style/custom_icon_style.dart';
+import '../style/text_style.dart';
+import 'moreelevatedbutton_widget.dart';
+
+class WeatherOverviewWidget extends StatelessWidget {
+  const WeatherOverviewWidget({
     super.key,
   });
 
@@ -22,26 +26,19 @@ class WeatherOverview extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Icon(
-                    Icons.location_on,
-                    size: 24,
-                  ),
-                  Text("Rampura"),
+                  CustomIcons.location,
+                   Text("Rampura", style: CustomTextStyles.weatherLocation),
                 ],
               ),
-              const Text("Sun, 18 August 10.45 AM"),
+              const Text("Sun, 18 August 10.45 am"),
               const SizedBox(
                 height: 8,
               ),
-              const Row(
+               Row(
                 children: [
-                  Icon(
-                    Icons.cloud_rounded,
-                    size: 50,
-                    color: Color(0xFF00BFFF),
-                  ),
+                  CustomIcons.cloud,
                   SizedBox(
                     width: 4,
                   ),
@@ -75,37 +72,17 @@ class WeatherOverview extends StatelessWidget {
                   Text("2 pm"),
                 ],
               ),
-              const Row(
+               Row(
                 children: [
-                  Icon(
-                    Icons.cloud_sharp,
-                    size: 50,
-                    color: Color(0xFF00BFFF),
-                  ),
+                  CustomIcons.cloud,
                   Spacer(),
-                  Icon(
-                    Icons.cloud,
-                    size: 50,
-                    color: Color(0xFF87CEEB),
-                  ),
+                  CustomIcons.cloud,
                   Spacer(),
-                  Icon(
-                    Icons.cloud_rounded,
-                    size: 50,
-                    color: Color(0xFF87CEFA),
-                  ),
+                  CustomIcons.cloud,
                   Spacer(),
-                  Icon(
-                    Icons.cloud_rounded,
-                    size: 50,
-                    color: Color(0xFFADD8E6),
-                  ),
+                  CustomIcons.cloud,
                   Spacer(),
-                  Icon(
-                    Icons.cloud_rounded,
-                    color: Color.fromARGB(255, 135, 206, 250),
-                    size: 50,
-                  ),
+                  CustomIcons.cloud,
                 ],
               ),
               const Row(
@@ -113,30 +90,35 @@ class WeatherOverview extends StatelessWidget {
                   Icon(
                     Icons.water_drop,
                     color: Color(0xFF00BFFF),
+                    size: 20,
                   ),
                   Text("30%"),
                   Spacer(),
                   Icon(
                     Icons.water_drop_outlined,
                     color: Color(0xFF00BFFF),
+                    size: 20,
                   ),
                   Text("40%"),
                   Spacer(),
                   Icon(
                     Icons.water_drop_rounded,
                     color: Color(0xFF00BFFF),
+                    size: 20,
                   ),
                   Text("50%"),
                   Spacer(),
                   Icon(
-                    Icons.water_drop_rounded,
+                    Icons.water_drop_outlined,
                     color: Color(0xFF00BFFF),
+                    size: 20,
                   ),
                   Text("60%"),
                   Spacer(),
                   Icon(
                     Icons.water_drop_rounded,
                     color: Color.fromARGB(255, 0, 191, 255),
+                    size: 20,
                   ),
                   Text("80%"),
                 ],
@@ -145,16 +127,7 @@ class WeatherOverview extends StatelessWidget {
                 height: 16,
               ),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xffefcf0a),
-                  ),
-                  child: const Text(
-                    "More",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
+                child: MoreElevatedButtonWidget(onPressed: (){},),
               ),
             ],
           ),
@@ -163,3 +136,4 @@ class WeatherOverview extends StatelessWidget {
     );
   }
 }
+

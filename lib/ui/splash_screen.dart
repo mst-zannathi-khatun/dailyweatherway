@@ -1,6 +1,9 @@
 import 'package:dailyweatherway/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../style/custom_color.dart';
+import '../style/text_style.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -16,11 +19,10 @@ class SplashScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            const Text("Daily Weather Way",
-                style: TextStyle(
-                  fontFamily: "assets/fonts/Editor Gifted DEMO.otf",
-                  fontSize: 24,
-                )),
+            Text(
+              "Daily Weather Way",
+              style: CustomTextStyles.splashHeader,
+            ),
             const SizedBox(
               height: 24,
             ),
@@ -35,13 +37,10 @@ class SplashScreen extends StatelessWidget {
                           builder: (context) => const HomeScreen()));
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xffefcf0a)),
-                child: const Text(
+                    backgroundColor: CustomColor.goldenYellow),
+                child: Text(
                   "Get Start",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: CustomTextStyles.splashButton,
                 ),
               ),
             ),
