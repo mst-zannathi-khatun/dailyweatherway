@@ -1,5 +1,6 @@
-import 'package:dailyweatherway/widgets/dotdivider.dart';
 import 'package:flutter/material.dart';
+import '../widgets/drawerchangelocationpart_widget.dart';
+import '../widgets/drawerlastpart_widget.dart';
 import '../widgets/drawersettingpart_widget.dart';
 import '../widgets/outdoorconditions_widget.dart';
 import '../widgets/weatherdetail_widget.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Container(
+      drawer: SizedBox(
         height: 800,
         child: Drawer(
           elevation: 0,
@@ -35,56 +36,23 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: ListView(
             padding: EdgeInsets.zero,
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       height: 16,
                     ),
-                    const DrawerSettingPartWidget(),
-                    const SizedBox(
-                      height: 32,
+                    DrawerSettingPartWidget(),
+                    SizedBox(
+                      height: 16,
                     ),
-                    const DotDivider(),
-                    const SizedBox(
-                      height: 8,
+                    DrawerChangeLocationPart(),
+                    SizedBox(
+                      height: 16,
                     ),
-                    const Row(
-                      children: [
-                        Icon(Icons.location_on),
-                        Text("Other Locations"),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("Dhaka"),
-                        const Spacer(),
-                        Icon(
-                          Icons.cloud_rounded,
-                          color: Colors.grey.withOpacity(0.5),
-                          size: 18,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text("28 \u00B0"),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Change Locations",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black38,
-                              fontWeight: FontWeight.bold),
-
-                        )),
+                    DrawerLastPartWidget(),
                   ],
                 ),
               ),
@@ -96,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            WeatherHeaderWidget(onMorePressed: _openDrawer), // Pass the callback here
+            WeatherHeaderWidget(onMorePressed: _openDrawer),
+            // Pass the callback here
             const SizedBox(
               height: 8,
             ),
@@ -119,4 +88,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

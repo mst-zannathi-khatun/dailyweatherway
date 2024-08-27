@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dotdivider.dart';
+
 class DrawerSettingPartWidget extends StatelessWidget {
   const DrawerSettingPartWidget({
     super.key,
@@ -73,6 +75,10 @@ class DrawerSettingPartWidget extends StatelessWidget {
             const Text("28 \u00B0"),
           ],
         ),
+        const SizedBox(
+          height: 32,
+        ),
+        const DotDivider(),
       ],
     );
   }

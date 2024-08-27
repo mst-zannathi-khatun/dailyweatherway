@@ -32,4 +32,9 @@ class CustomTextStyles {
     fontWeight: FontWeight.bold,
     fontSize: 17,
   );
+
+  // Text style for the drawer last part in the Drawer support
+  static TextStyle drawerText = const TextStyle(
+    fontSize: 20,
+  );
 }
